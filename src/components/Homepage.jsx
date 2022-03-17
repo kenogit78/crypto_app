@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import millify from 'millify';
 import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom'
@@ -10,6 +10,13 @@ const { Title } = Typography;
 
 const Homepage = () => {
 
+
+    useEffect(() => {
+      
+
+    }, [])
+    
+
     const { data, isFetching } = useGetCryptosQuery(10);
 
     const globalStats = data?.data?.stats;
@@ -18,8 +25,9 @@ const Homepage = () => {
 
     console.log(data)
 
-    return (
+    return data ? (
         <>
+
            <Title level={2} className='heading' > Global Crypto Stats</Title>
 
            <Row gutter={[32, 32]}>
@@ -41,7 +49,7 @@ const Homepage = () => {
             </div>
                     <News simplified />
         </>
-    )
+    ): "waiting"
 }
 
 export default Homepage
