@@ -15,7 +15,7 @@ const Exchanges = () => {
 
   if (isFetching) return 'Loading...';
 
-  return (
+  return exchangesList ? (
     <>
       <Row>
         <Col span={6}>Exchanges</Col>
@@ -50,7 +50,7 @@ const Exchanges = () => {
         ))}
       </Row>
     </>
-  );
+  ) : "data loading..."
 };
 
 export default Exchanges;
